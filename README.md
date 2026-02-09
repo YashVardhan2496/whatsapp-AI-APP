@@ -1,37 +1,44 @@
-📱 WhatsApp AI Reminder Assistant
+# 📱 WhatsApp AI Reminder Assistant
 
-A high-performance, asynchronous backend built with FastAPI and Twilio to schedule and deliver reminders via WhatsApp.
-Includes a persistent database layer and a smart-resume scheduler that guarantees delivery even after server restarts.
+A high-performance, asynchronous backend built with **FastAPI** and **Twilio** to schedule and deliver reminders via **WhatsApp**.  
+It features a persistent database layer and a **smart-resume scheduler** that guarantees delivery even after server restarts.
 
-🌟 Features
+---
 
-• Asynchronous Scheduling
-Built on Python asyncio to handle thousands of concurrent timers efficiently.
+## 🌟 Features
 
-• Database Persistence
-Uses SQLAlchemy 2.0 (Async) with SQLite to log and track every reminder.
+- **Asynchronous Scheduling**  
+  Built on Python `asyncio` to handle thousands of concurrent timers efficiently.
 
-• Resilient Design
-On startup, the system scans the database and re-schedules all pending reminders — making it crash-proof.
+- **Database Persistence**  
+  Uses **SQLAlchemy 2.0 (Async)** with SQLite to log and track every reminder.
 
-• AI-Ready
-Pre-configured OpenAI integration layer for NLP commands like
-“Remind me in 2 hours”.
+- **Resilient Design**  
+  On startup, the system scans the database and re-schedules pending reminders.
 
-• Clean Architecture
-Modular structure separating APIs, core config, models, and services.
+- **AI-Ready**  
+  Pre-configured OpenAI integration layer for NLP commands like  
+  _“Remind me in 2 hours.”_
 
-🛠️ Tech Stack
+- **Clean Architecture**  
+  Modular structure separating APIs, core configuration, models, and services.
 
-• Framework: FastAPI
-• ORM: SQLAlchemy 2.0 (Async)
-• Database: SQLite
-• Messaging: Twilio Messaging API (WhatsApp)
-• Environment: Pydantic Settings & Dotenv
-• Task Management: Python Asyncio
+---
 
-📂 Project Structure
+## 🛠️ Tech Stack
 
+- **Framework**: FastAPI  
+- **ORM**: SQLAlchemy 2.0 (Async)  
+- **Database**: SQLite  
+- **Messaging**: Twilio Messaging API (WhatsApp)  
+- **Environment**: Pydantic Settings & Dotenv  
+- **Task Management**: Python Asyncio  
+
+---
+
+## 📂 Project Structure
+
+```text
 ├── app/
 │   ├── api/                  # API endpoint controllers
 │   ├── core/
@@ -46,45 +53,29 @@ Modular structure separating APIs, core config, models, and services.
 ├── main.py                   # App entry point & startup hooks
 ├── reminders.db              # Local SQLite database
 └── .env                      # Private credentials
-
-
 🚀 Getting Started
-
-🔹 1. Installation
-
+1. Installation
 git clone https://github.com/YashVardhan2496/whatsapp-AI-APP.git
 cd whatsapp-AI-APP
 python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-
-
-🔹 2. Configure Environment
-
+2. Configure Environment
 Create a .env file in the root directory:
 
 TWILIO_ACCOUNT_SID=your_sid
 TWILIO_AUTH_TOKEN=your_token
 TWILIO_PHONE_NUMBER=+1234567890
 OPENAI_API_KEY=your_openai_key
-
-
 ⚠️ Never commit .env to version control.
 
-🔹 3. Launch the App
-
+3. Run the Application
 uvicorn main:app --reload
-
-
-Server runs at:
+The server will be available at:
 
 http://127.0.0.1:8000
-
-
 📡 API Reference
-
-🧾 Create a New Reminder
-
+Create a New Reminder
 POST /reminders/
 
 Request Body:
@@ -94,40 +85,26 @@ Request Body:
   "to_number": "+917027849920",
   "remind_at": "2026-02-15T18:30:00"
 }
+Flow:
 
+Phone number & timestamp validation
 
-How it works:
+Reminder stored in reminders.db
 
-• Validation → phone number & timestamp checked
-• Storage → reminder saved to reminders.db
-• Scheduling → asyncio task created
-• Delivery → WhatsApp message sent at exact second
+Async task scheduled
+
+WhatsApp message sent at exact time
 
 🤖 Future Roadmap
+NLP parsing for natural language reminders
 
-• NLP parsing for natural language reminders
-• Two-way WhatsApp interaction (cancel / snooze)
-• Automatic timezone detection & adjustment
+Two-way WhatsApp interaction (cancel / snooze)
 
-👨‍💻 Developed by: Yash Vardhan
-📄 License: MIT
+Automatic timezone detection
 
-🔥 Why this works on WhatsApp
+👨‍💻 Author
+Yash Vardhan
 
-No Markdown-dependent headings
+📄 License
+MIT
 
-All trees & code in monospace blocks
-
-Emojis used as visual separators
-
-Zero indentation loss
-
-If you want, I can also:
-
-Optimize this for GitHub README
-
-Make a LinkedIn project post
-
-Convert it into portfolio documentation
-
-Just say the move 🚀
