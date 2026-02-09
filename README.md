@@ -25,21 +25,21 @@ Environment: Pydantic Settings & Dotenv
 
 Task Management: Python Asyncio
 
-📂 Project Structure
-Plaintext
 ├── app/
-│   ├── api/                # API endpoint controllers
+│   ├── api/                 # API endpoint controllers
 │   ├── core/
-│   │   ├── config.py       # Environment variable & Secret management
-│   │   └── database.py     # SQLAlchemy engine & Session setup
+│   │   ├── config.py        # Environment variables & secret management
+│   │   └── database.py      # SQLAlchemy engine & session setup
 │   ├── models/
-│   │   └── reminder.py     # SQL database schema
+│   │   └── reminder.py      # SQL database schema
 │   └── services/
-│       ├── scheduler.py    # Async logic for message delays
-│       └── twilio_service.py # Twilio API integration
-├── main.py                 # App entry point & Startup lifecycle hooks
-├── reminders.db            # Local SQLite database
-└── .env                    # (Private) API Keys & Credentials
+│       ├── scheduler.py     # Async logic for delayed message scheduling
+│       └── twilio_service.py# Twilio API integration
+│
+├── main.py                  # Application entry point & startup lifecycle hooks
+├── reminders.db             # Local SQLite database
+└── .env                     # Private API keys & credentials
+
 🚀 Getting Started
 1. Installation
 Bash
